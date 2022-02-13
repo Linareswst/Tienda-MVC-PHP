@@ -39,7 +39,7 @@
                     }
                     ?>
                 </table>
-                <a href="../index.php"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
+                <a href="http://localhost/MVC/index/"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
                 <hr/>
             </div> 
             <footer class="col-lg-12 text-center">

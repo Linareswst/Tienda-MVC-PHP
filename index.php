@@ -4,8 +4,16 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['prec
 
     include "models/modelo.php";
     //include "controllers/controlador.php";
-    $nuevo = new Productos();
-    $asd = $nuevo->setProducto($_POST['nombre'], $_POST['precio']);
+    if(preg_match('/^\d{0,8}(\.\d{1,4})?$/', $_POST['precio'])){
+        if(preg_match('/[a-zA-Z]+/', $_POST['nombre'])){
+            $nuevo = new Productos();
+            $asd = $nuevo->setProducto($_POST['nombre'], $_POST['precio']);
+        }else{
+            echo "<script>alert('El nombre solo debe llevar letras');</script>";
+        }
+    }else{
+        echo "<script>alert('El precio no cumple con el formato');</script>";
+    }
 }
 ?>
 <html lang="en">
@@ -37,7 +45,7 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['prec
                 <div class="col-lg-12 text-center">
                     <hr/>
                     <h3>Listado de productos</h3>
-                    <a href="controllers/controlador.php"><i class="fa fa-align-justify"></i> Acceder al listado de productos</a>
+                    <a href="http://localhost/MVC/controllers/controlador/"><i class="fa fa-align-justify"></i> Acceder al listado de productos</a>
                     <hr/>
                 </div>
                 </form>
